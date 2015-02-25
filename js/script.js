@@ -1,28 +1,26 @@
-$('#introduction, #middlesection, #pastproductions, #middlesection2, #gettoknowus').on('click', function(e){
-   e.preventDefault();
-    var scrollToThis;
-    if($(this).get(0).href == 'introduction') {
-        scrollToThis = $('introduction');
-    }
-    else if($(this).get(0).href == 'middlesection'){
-        scrollToThis = $('middlesection');
-    }
-    else if($(this).get(0).href == 'middlesection2'){
-        scrollToThis = $('middlesection2');
-    }
-    else if($(this).get(0).href == 'pastproductions'){
-        scrollToThis = $('pastproductions');
-    }
-    else if($(this).get(0).href == 'gettoknowus'){
-        scrollToThis = $('gettoknowus');
-    }
-    $('html, body').stop().animate({scrollTop: scrollToThis.offset().top}, 300);
+$(document).ready(function() {
+    $('a[anchor]').click(function(scrollerFunc) {
+        scrollerFunc.preventDefault();
+        var anchor = $(this).attr('anchor');
+        var top = $('div[name='+anchor+']').offset().top;
+        $('html, body').animate({scrollTop:top}, 300);
+    });
 });
 
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 1){
+        $('.headernavbar').addClass("resize");
+    }
+    else{
+        $('.headernavbar').removeClass("resize");
+    }
+});
 
-var $items = $(".carouselcontainer div");
+var $pictures = $(".carouselcontainer div");
 $("button").click(function(){
-    index = $(".carouselcontainer div:visible").index();
-    $items.hide().eq(
-        (index + $items.length + ($(this).attr("data-mod") * 1)) % $items.length).css("display", "inline-block");
+    showthis = $(".carouselcontainer div:visible").index();
+    hidethese = $pictures.length + showthis;
+    hidethese += ($(this).attr("data-mod") * 1) % $pictures.length;
+    $pictures.hide().eq(
+        hidethese.css("display", "inline-block");
 });

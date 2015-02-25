@@ -12,14 +12,14 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway);
 
 body{
-  background-color: #2B3D47;
+  background-color: $background-grey;
 }
 
 .pageheader h1{
   font-family: 'Amatic SC', cursive;
   font-size: 125px;
   padding-top: 8%;
-  color: #60c8ff;
+  color: $title-blue;
   text-align: center;
 }
 
@@ -42,7 +42,7 @@ body{
 }
 
 article p{
-  color: #A1B0B8;
+  color: $paragraph-text-grey;
   font-family: 'Lora', serif;
   font-size: 20px;
   padding-top: 1%;
@@ -52,7 +52,7 @@ article p{
 }
 
 article ul{
-  color: #A1B0B8;
+  color: $paragraph-text-grey;
   font-size: 20px;
   font-family: 'Lora', serif;
 }
@@ -66,18 +66,6 @@ em{
   font-style: italic;
 }
 
-nav div{
-  font-size: 40px;
-  border: none;
-  font-family: 'Lora', serif;
-  background-color: black;
-  color: aliceblue;
-  padding-top: 3%;
-  padding-bottom: 3%;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
 .currentproduction{
   float: left;
   width: 35%;
@@ -85,10 +73,10 @@ nav div{
   margin-left: 10%;
   margin-right: auto;
   padding-bottom: 4%;
-  background-color: #2B3D47;
+  background-color: $background-grey;
 }
 
-.donations{
+.lendahand {
   padding-top: 2%;
   float: right;
   width: 35%;
@@ -153,7 +141,7 @@ nav div{
   //margin: 10% auto;
   padding: 20px 20px 20px 20px;
   border-radius: 10px;
-  background: #999;
+  background: $paragraph-text-grey;
 }
 
 .clickedModal div img{
@@ -162,8 +150,8 @@ nav div{
 }
 
 .exit{
-  background: #606061;
-  color: #FFFFFF;
+  background: $background-grey;
+  color: white;
   line-height: 25px;
   position: absolute;
   right: -12px;
@@ -186,20 +174,20 @@ nav div{
   //vertical-align: middle;
   display: inline-block;
   border-width: 8px;
-  border-color: #A1B0B8;
+  border-color: $paragraph-text-grey;
   border-style: solid;
 }
 
 .footer{
   margin-top: 5%;
-  color: #2B3D47;
+  color: $background-grey;
   font-family: 'Lora', serif;
   font-size: 20px;
   padding-top: 1%;
   padding-bottom: 1%;
   line-height: 200%;
   width: 100%;
-  background-color: #E8ECED;
+  background-color: $footer-background-color;
   text-align: center;
 
   -webkit-animation: colorloop 5s infinite;
@@ -207,47 +195,89 @@ nav div{
 }
 
 @-webkit-keyframes colorloop {
-  0% {background: #E8ECED; color: #2B3D47}
-  50% {background: #2B3D47; color: #E8ECED}
-  100% {background: #E8ECED; color: #2B3D47}
+  0% {background: $footer-background-color; color: $background-grey;}
+  50% {background: $background-grey; color: $footer-background-color;}
+  100% {background: $footer-background-color; color: $background-grey;}
  }
 
 @keyframes colorloop{
-  0% {background: #E8ECED; color: #2B3D47}
-  50% {background: #2B3D47; color: #E8ECED}
-  100% {background: #E8ECED; color: #2B3D47}
+  0% {background: $footer-background-color; color: $background-grey;}
+  50% {background: $background-grey; color: $footer-background-color;}
+  100% {background: $footer-background-color; color: $background-grey;}
 }
 
-.headernavbar nav ul li a{
-  font-family: 'Lato', sans-serif;
-  color: #1D3C4C;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  width: 20%;
-  font-size: 20px;
-  display: block;
-  float: left;
-  background-color: #E8ECED;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
+nav{
+  width: 100%;
+  border-style: solid;
+  border-color: $footer-background-color;
+  background-color: $footer-background-color;
+  div{
+    font-size: 40px;
+    border: none;
+    font-family: 'Lora', serif;
+    background-color: black;
+    color: aliceblue;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
-.headernavbar{
+.headernavbar {
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1;
+  height: 20%;
+  nav ul li a {
+    font-family: 'Lato', sans-serif;
+    color: $header-navbar-text-color;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 20%;
+    font-size: 20px;
+    display: block;
+    float: left;
+    background-color: $footer-background-color;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    max-height: 100%;
+    transition: all 0.4s ease;
+  }
+}
+
+.headernavbar.resize {
+  transition: all 0.4s ease;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  height: 5%;
+  nav ul li a {
+    font-family: 'Lato', sans-serif;
+    color: $header-navbar-text-color;
+    width: 20%;
+    font-size: 15px;
+    display: block;
+    float: left;
+    background-color: $footer-background-color;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    max-height: 100%;
+  }
 }
 
 .headernavbar nav ul li a:hover{
-  color: #E9EEF0;
-  background-color: #265168;
+  color: $navbar-hover-text-color;
+  background-color: $navbar-haver-background-color;
 }
 
 .imggallery {
   width: 100%;
-  background-color: #4DA2CF;
+  background-color: $image-gallery-background-color;
 }
 
 .videowrapper{
@@ -271,20 +301,13 @@ article p{
   text-align: center;
   a{
     text-decoration: none;
-    color: #E3E7EA
+    color: $article-paragraph-link-color;
   }
 }
 
 .gettoknowus article p a i {
   padding-left: 2%;
   padding-right: 2%;
-}
-
-nav{
-  width: 100%;
-  border-style: solid;
-  border-color: #E8ECED;
-  background-color: #E8ECED;
 }
 
 html, body{
@@ -313,13 +336,13 @@ html, body{
 div.carousel {
   clear: both;
   width: 100%;
-  background-color: #60c8ff;
+  background-color: $title-blue;
   height: 60%;
   button {
     position: absolute;
     border: none;
-    background-color: #60c8ff;
-    color: #2B3D47;
+    background-color: $title-blue;
+    color: $background-grey;
     width: 8%;
     font-family: 'Raleway', sans-serif;
     font-size: 40px;
