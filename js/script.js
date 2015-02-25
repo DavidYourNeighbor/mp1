@@ -19,8 +19,7 @@ $(window).scroll(function() {
 var $pictures = $(".carouselcontainer div");
 $("button").click(function(){
     showthis = $(".carouselcontainer div:visible").index();
-    hidethese = $pictures.length + showthis;
-    hidethese += ($(this).attr("data-mod") * 1) % $pictures.length;
-    $pictures.hide().eq(
-        hidethese.css("display", "inline-block");
+    hidethese = $pictures.length + showthis + + ($(this).attr("data-mod") * 1);
+    hidethese = hidethese % $pictures.length;
+    $pictures.hide().eq(hidethese).css("display", "inline-block");
 });
